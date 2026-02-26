@@ -14,15 +14,11 @@ scroll-behavior:smooth;
 body{
   background:#f8fafc;
   color:#1e293b;
-
   background-image:
     linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
     url('assets/contabilidad4.jpg');
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll; /* 🔥 por defecto */
+
 }
 
 
@@ -582,3 +578,4 @@ padding:80px 20px;
 }
 
 }
+
