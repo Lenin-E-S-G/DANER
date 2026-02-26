@@ -24,17 +24,7 @@ body{
   background-repeat: no-repeat;
   background-attachment: scroll; /* 🔥 por defecto */
 }
-@media (min-width: 1024px) {
-  body{
-    background-attachment: fixed;
-  }
-}
-@media (max-width: 480px) {
-  body{
-    background-position: top center;
-    background-size: cover;
-  }
-}
+
 
 
 /* HEADER */
@@ -592,4 +582,3 @@ padding:80px 20px;
 }
 
 }
-
