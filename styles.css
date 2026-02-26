@@ -515,6 +515,16 @@ section {
 .website {
     background: #000000; /* Negro para el icono de laptop */
 }
+@media (max-width: 768px) {
+
+  .social-icons-container {
+    top: auto;
+    bottom: 20px;
+    right: 15px;
+    transform: none;
+  }
+
+}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -553,3 +563,5 @@ padding:80px 20px;
 }
 
 }
+
+
