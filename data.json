@@ -1,0 +1,28 @@
+{
+  "servicios": [
+    {
+      "titulo": "Asesoría Contable",
+      "descripcion": "Control de inventarios, cierres mensuales y balances financieros."
+    },
+    {
+      "titulo": "Gestión IESS",
+      "descripcion": "Número patronal y control de aportaciones."
+    },
+    {
+      "titulo": "Ministerio Relaciones Laborales",
+      "descripcion": "Creacion de numero patronal, registro de contratos, registro de beneficios sociales"
+    },
+    {
+      "titulo": "Municipio de Guayaquil",
+      "descripcion": "Patente y trámites municipales."
+    },
+    {
+      "titulo": "SRI",
+      "descripcion": "Declaraciones tributarias y asesoría por RUC."
+    },
+    {
+      "titulo": "Cuerpo de Bomberos",
+      "descripcion": "Tramites de permisos anuales"
+    }
+  ]
+}

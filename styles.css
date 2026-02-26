@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&family=Croissant+One&family=Orbitron:wght@400..900&display=swap');
+:root{
+  --bg:#b3dffd; --card:#ffffff; --muted:#6b7280; --text:#0f172a; --accent:#0ea5a4;
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+scroll-behavior:smooth;
+}
+
+body{
+background:#f8fafc;
+color:#1e293b;
+    /* Configuración de la imagen de fondo */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('assets/contabilidad4.jpg');
+    background-size: cover;           /* Hace que la imagen cubra toda la sección */
+    background-position: center;      /* Centra la imagen */
+    background-attachment: fixed;    /* Opcional: crea un efecto de desplazamiento suave (parallax) */
+    background-repeat: no-repeat;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:rgb(255, 255, 255);
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:bold;
+font-size:22px;
+}
+
+.logo img{
+width:40px;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:#1e293b;
+font-weight:500;
+}
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* HERO */
+.hero{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+padding:150px 60px 100px;
+gap:40px;
+}
+
+.hero-text h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.btn{
+padding:14px 28px;
+background:#f97316;
+color:white;
+text-decoration:none;
+border-radius:6px;
+display:inline-block;
+margin-top:15px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#ea580c;
+transform:translateY(-3px);
+}
+
+/* CARRUSEL HERO */
+.hero-carousel {
+    position: relative;
+    height: 350px;
+    width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    background-color: #000; /* Opcional: fondo negro para que no se vea blanco al cambiar */
+}
+
+.hero-carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease; /* Bajamos de 10s a 1.5s para un efecto fluido */
+    z-index: 1;
+}
+
+.hero-carousel img.active {
+    opacity: 1;
+    z-index: 2; /* Asegura que la imagen activa esté por encima */
+}
+
+section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;       /* Permite que las tarjetas bajen a la siguiente fila */
+    justify-content: center; /* Centra las tarjetas si sobran espacios */
+    gap: 30px;            /* Espacio entre tarjetas */
+    max-width: 1200px;    /* Ancho suficiente para 3 columnas */
+    margin: auto;
+
+}
+
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(218, 7, 7, 0.08);
+    
+    /* Configuración para 3 columnas */
+    width: calc(33.33% - 20px); 
+    min-width: 300px;     /* No deja que se deformen en pantallas pequeñas */
+    
+    /* Animación de entrada (Scroll) */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* Efecto al pasar el mouse */
+.card:hover {
+    transform: translateY(-10px); /* Se eleva un poquito */
+    box-shadow: 0 50px 35px rgba(189, 5, 5, 0.15); /* Sombra más profunda */
+    cursor: pointer;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card h3 {
+    color: #f97316;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+/*Por Q?*/
+
+/* 1. Definir la animación de giro y entrada */
+@keyframes entrarCircular {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-45deg); /* Empieza pequeño y rotado */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);    /* Termina en su tamaño real y derecho */
+    }
+}
+
+/* Contenedor principal */
+.info-nosotros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Estilo del Bloque Circular */
+.bloque {
+    width: 420px;           /* Ajustado un poco más grande para el texto */
+    height: 420px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 8px solid #f97316;
+    border-radius: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;          /* Más padding para centrar mejor el texto largo */
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    
+    /* Aplicar la animación al cargar */
+    animation: entrarCircular 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    
+    /* Transición suave para el hover */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Retraso para que la Visión aparezca un poquito después que la Misión */
+.bloque:last-child {
+    animation-delay: 0.3s;
+}
+
+/* Efecto al pasar el mouse */
+.bloque:hover {
+    transform: scale(1.08) rotate(2deg); /* Se agranda y se inclina sutilmente */
+    border-color: #fb923c;              /* El naranja se vuelve un poco más claro */
+    box-shadow: 0 15px 40px rgba(249, 115, 22, 0.3);
+    cursor: default;
+}
+
+.bloque h3 {
+    color: #f97316;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.bloque p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .bloque {
+        width: 340px;
+        height: 340px;
+        padding: 35px;
+    }
+    .bloque p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Para que en celulares se pongan uno abajo del otro */
+@media (max-width: 768px) {
+    .info-nosotros {
+        flex-direction: column;
+    }
+}
+
+/* Estilo General de la Sección */
+.contacto {
+    padding: 100px 20px;
+    background: transparent;
+}
+
+.contacto-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contacto-header h2 {
+    font-size: 2.5rem;
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+
+/* Contenedor del Formulario */
+.form-wrapper {
+    max-width: 650px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 0 0 20px 20px; /* Redondeado abajo */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Barra Naranja Superior */
+.form-accent-bar {
+    height: 12px;
+    background: #f97316; /* Color naranja DANER */
+    width: 100%;
+}
+
+.form-contacto {
+    padding: 40px;
+}
+
+/* Estilo de los Campos de Entrada */
+.input-container {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.input-container label {
+    display: block;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.input-container input, 
+.input-container textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f7fafc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-container input:focus, 
+.input-container textarea:focus {
+    outline: none;
+    border-color: #f97316;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* Botón Estilizado */
+.btn-enviar {
+    width: 100%;
+    background: #f97316;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background: #ea580c;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(234, 88, 12, 0.2);
+}
+
+.btn-enviar:active {
+    transform: translateY(0);
+}
+/*Publicaciones*/
+/* Contenedor Principal Flex */
+.contacto-flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra verticalmente el consejo con el formulario */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-wrap: wrap; /* Para que en móviles se ponga uno abajo del otro */
+}
+
+/* Ajuste del Formulario */
+.form-wrapper {
+    flex: 2; /* El formulario es más ancho */
+    min-width: 350px;
+    background: #fff;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Ajuste del Consejo Lateral */
+.tip-lateral {
+    flex: 1; /* El consejo es más angosto */
+    min-width: 300px;
+}
+
+.tip-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    border-left: 8px solid #f97316;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+}
+
+.tip-label {
+    color: #f97316;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.tip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+#texto-publicacion {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #334155;
+    font-style: italic;
+}
+
+/* Barra Naranja y Botón se mantienen igual que el código anterior */
+.form-accent-bar { height: 12px; background: #f97316; width: 100%; }
+.btn-enviar { background: #f97316; color: white; padding: 15px; border: none; border-radius: 8px; width: 100%; cursor: pointer; font-weight: bold; }
+
+.tip-container {
+    max-width: 800px;
+    width: 100%;
+    background: #fff;
+    border-left: 6px solid #f97316; /* Naranja DANER */
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tip-icon {
+    font-size: 2rem;
+    background: #fff3eb;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.tip-label {
+    display: block;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #f97316;
+    margin-bottom: 5px;
+}
+
+#texto-publicacion {
+    font-size: 1.1rem;
+    color: #334155;
+    margin: 0;
+    font-style: italic;
+}
+
+
+
+
+
+/* Contenedor de iconos */
+.social-icons-container {
+    display: flex;
+    flex-direction: column; /* Para que estén uno debajo del otro */
+    gap: 15px;
+    position: fixed; /* Si quieres que floten a un lado */
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+/* Estilo base de los botones */
+.social-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px; /* Bordes redondeados como la imagen */
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Colores específicos */
+.whatsapp {
+    background: #25D366; /* Verde WhatsApp */
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.email {
+    background: #2563eb; /* Azul para correo */
+}
+
+.website {
+    background: #000000; /* Negro para el icono de laptop */
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+header{
+padding:20px;
+}
+
+nav{
+position:absolute;
+top:80px;
+right:0;
+background:white;
+flex-direction:column;
+width:100%;
+text-align:center;
+display:none;
+padding:20px 0;
+}
+
+nav.active{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+section{
+padding:80px 20px;
+}
+
+}
